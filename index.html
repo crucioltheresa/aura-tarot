@@ -12,7 +12,8 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- <link rel="icon" type="image/png" href="assets/images/logomark.png"> -->
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -51,9 +52,10 @@
             <p>Connect with the ancient energies and discover the guidance of the tarot</p>
             <a href="#tarot" class="btn glassmorphic-btn btn-lg mt-3">Get Your Reading</a>
         </section>
-        <hr class="my-4">
+    </header>
+    <main>
         <section class="glassmorphic-card d-flex flex-column justify-content-center align-items-center" id="tarot">
-            <h1 class="glassmorphic-card p-3 my-3 text-uppercase">Tarot Reading</h1>
+            <h1 class="glassmorphic-card p-3 my-5 text-uppercase">Tarot Reading</h1>
             <span class="opacity-50 p-3 fst-italic fw-lighter">Click on the card to start</span>
             <a href="#"><img id="card-size" src="assets/images/cards/back.png" alt=""></a>
             <p class="text-center p-3">Discover the insights and guidance that tarot cards can offer you. Our readings
@@ -61,10 +63,16 @@
                 designed to help
                 you navigate life's challenges and uncover hidden opportunities.</p>
         </section>
-    </header>
+        <section class="d-flex flex-column justify-content-center align-items-center" id="path">
+            <h1 class="glassmorphic-card p-3 my-5 text-uppercase">Your Path</h1>
+            <!-- Google chart -->
+            <div class="dashboard-container glassmorphic-card p-4 mb-5">
+                <h1>Aura Tarot Analysis</h1>
 
-
-
+                <div id="aura_element_chart"></div>
+            </div>
+        </section>
+    </main>
 
 
 
@@ -95,6 +103,8 @@
                 });
             });
     </script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
