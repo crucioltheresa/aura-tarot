@@ -1,19 +1,70 @@
-body {
-    /* background: linear-gradient(135deg, #271A3F, #622f87, #301C4F, #130D3A, #190B29); */
-    background-image: url('../images/background.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Marcellus&display=swap');
+
+/* CSS Variables */
+:root {
+    --color-text: #FFFFFF;
+    --primary-font-family: 'Marcellus', serif;
+    --secondary-font-family: 'Afacad', sans-serif;
+    --font-size: 1rem;
+    --font-weight: 100;
 }
 
+html,
+body {
+    margin: 0;
+    padding-top: 50px;
+    width: 100%;
+    overflow-x: hidden;
+    color: var(--color-text);
+    font-family: var(--secondary-font-family);
+    font-size: var(--font-size);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--primary-font-family);
+}
+
+
+
+/* Background & Image Styling */
+.main-bg {
+    min-height: 100vh;
+    /* Background setup */
+    background-image: url('../images/bg3.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#icon {
+    width: 35px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Cards Styling */
+#card-size {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Glassmorphism Styles */
 .glassmorphic-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -25,9 +76,9 @@ body {
 .glassmorphic-btn {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
     color: white;
-    border-radius: 50px;
+    border-radius: 5px;
     padding: 12px 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -42,8 +93,11 @@ body {
 .glassmorphic-navbar {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 10px;
+    height: auto;
 }
 
 .nav-link {
@@ -52,11 +106,6 @@ body {
 }
 
 .nav-link:hover {
-    color: white !important;
-}
-
-.navbar-brand {
-    font-weight: bold;
     color: white !important;
 }
 
