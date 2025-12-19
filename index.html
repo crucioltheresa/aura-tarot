@@ -55,21 +55,42 @@
     </header>
     <main>
         <section class="glassmorphic-card d-flex flex-column justify-content-center align-items-center" id="tarot">
-            <h2 class="glassmorphic-card p-3 my-5 text-uppercase">Tarot Reading</h2>
-            <span class="opacity-50 p-3 fst-italic fw-lighter">Click on the card to start</span>
-            <a href="reading.html"><img id="card-size" src="assets/images/cards/card-back.png" alt="deck of cards"></a>
-            <p class="text-center px-3 pt-3 mb-5">Discover the insights and guidance that tarot cards can offer you. Our
-                readings
-                are
-                designed to help
-                you navigate life's challenges and uncover hidden opportunities.</p>
+            <div class="glassmorphic-card d-flex flex-column justify-content-center align-items-center">
+                <h2 class="glassmorphic-card p-3 my-5 text-uppercase">Tarot Reading</h2>
+                <span class="opacity-50 p-3 fst-italic fw-lighter">Focus on your question and draw your cards.</span>
+
+
+                <section class="board">
+                    <div id="cards-container" class="cards-grid">
+                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder"
+                            style="width: 250px;">
+                            <img src="assets/images/cards/card-back.png" alt="Tarot Deck"
+                                class="img-fluid rounded mb-3">
+                        </div>
+
+                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder d-none d-md-block"
+                            style="width: 250px;">
+                            <img src="assets/images/cards/card-back.png" alt="Tarot Deck"
+                                class="img-fluid rounded mb-3">
+                        </div>
+                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder d-none d-md-block"
+                            style="width: 250px;">
+                            <img src="assets/images/cards/card-back.png" alt="Tarot Deck"
+                                class="img-fluid rounded mb-3">
+                        </div>
+                    </div>
+                </section>
+
+                <div class="actions">
+                    <button id="draw-button" class="btn glassmorphic-btn btn-lg my-3">Draw Cards</button>
+                </div>
+            </div>
         </section>
         <section class="d-flex flex-column justify-content-center align-items-center" id="path">
             <h2 class="glassmorphic-card p-3 my-5 text-uppercase">Your Path</h2>
             <!-- Google chart -->
             <div class="dashboard-container glassmorphic-card p-4 mb-3">
                 <h3 class="display-6">Element Analysis</h3>
-
                 <div id="aura_element_chart"></div>
             </div>
             <div class=" p-4 mb-5">
@@ -118,27 +139,6 @@
         crossorigin="anonymous"></script>
     <!-- Font Awsome JS -->
     <script src="https://kit.fontawesome.com/90eeb5b7f8.js" crossorigin="anonymous"></script>
-    <!-- JavaScript code to ensure the Bootstrap mobile navbar collapses when navigating to in-page links -->
-    <script>
-        document
-            .querySelectorAll(".navbar-collapse .nav-link")
-            .forEach((link) => {
-                link.addEventListener("click", function (e) {
-                    let section = document.querySelector(e.target.getAttribute("href"));
-                    if (section) {
-                        e.preventDefault(); // Prevent default anchor click behavior
-                        let navbarHeight = document.querySelector(".navbar-toggler").offsetHeight;
-                        window.scroll({
-                            top: section.offsetTop - navbarHeight, // Adjust for navbar height
-                            behavior: "smooth",
-                        });
-                        document
-                            .querySelector(".navbar-collapse")
-                            .classList.remove("show"); // Collapse navbar
-                    }
-                });
-            });
-    </script>
     <!-- Custom JS -->
     <script src="assets/js/data.js"></script>
     <script src="assets/js/script.js"></script>
