@@ -100,16 +100,12 @@ summary::-webkit-details-marker {
 .modal-content.glassmorphic-card {
     background: rgba(18, 18, 18, 0.9);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(224, 192, 104, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
 }
 
-.modal-header {
-    border-bottom: 1px solid rgba(224, 192, 104, 0.2);
-}
-
-.modal-footer {
-    border-top: 1px solid rgba(224, 192, 104, 0.2);
+.modal-header .modal-footer {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .card-modal-img {
@@ -175,10 +171,8 @@ summary::-webkit-details-marker {
 /* Chart Styling */
 #aura_element_chart svg g path {
     fill-opacity: 0.6;
-    /* Aqui criamos a transparência do vidro */
     stroke-width: 1px;
     stroke: rgba(255, 255, 255, 0.3);
-    /* Brilho na borda da fatia */
     transition: fill-opacity 0.3s ease;
 }
 
@@ -197,18 +191,6 @@ summary::-webkit-details-marker {
     padding: 0 15px;
     max-width: 600px;
     margin: 20px auto;
-}
-
-/* Details Styling */
-.energy-guide {
-    max-width: 500px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(224, 192, 104, 0.2);
-}
-
-.energy-guide[open] {
-    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Animation */

@@ -68,13 +68,15 @@ function executeShuffle() {
         cardDiv.style.animationDelay = `${index * 0.2}s`;
         cardDiv.style.cursor = 'pointer'; // indicate clickable cards
 
-        // add click event to show modal
+        // Add click event to show modal
         cardDiv.onclick = () => showCardDetails(card);
 
         cardDiv.innerHTML = `
         <img src="${getCardImagePath(card.name)}" alt="${card.name}" class="img-fluid rounded mb-3">
         <h4>${card.name}</h4>
         <p class="small fst-italic">"${card.tagline}"</p>
+        <p class="small text-uppercase tracking-widest opacity-75" style="letter-spacing: 2px;">
+        Aura: ${card.aura_theme}</p>
     `;
         container.appendChild(cardDiv);
     });
@@ -84,17 +86,18 @@ function executeShuffle() {
         document.getElementById('modalCardName').innerText = card.name;
         document.getElementById('modalCardImg').src = getCardImagePath(card.name);
         document.getElementById('modalCardTagline').innerText = `"${card.tagline}"`;
-
-        // Handle missing descriptions
         document.getElementById('modalCardDescription').innerText = card.description || "Description coming soon to the stars...";
 
         const cardModal = new bootstrap.Modal(document.getElementById('cardModal'));
         cardModal.show();
+
     }
     // Draws the chart after cards are displayed
     if (typeof google !== 'undefined' && google.visualization) {
         drawAuraChart();
+
     }
+
 }
 
 // Chart Drawing Logic
