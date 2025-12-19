@@ -58,6 +58,27 @@ h6 {
     border-radius: 5px;
 }
 
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.card-item img {
+    width: 200px;
+    /* ou o tamanho que preferir */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.card-item img:hover {
+    transform: scale(1.05);
+}
+
 /* Glassmorphism Styles */
 .glassmorphic-card {
     background: rgba(255, 255, 255, 0.1);
