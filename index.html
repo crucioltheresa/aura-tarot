@@ -13,7 +13,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <!-- Google Charts -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
@@ -47,7 +47,7 @@
             <div class="glassmorphic-card d-flex flex-column justify-content-center align-items-center">
                 <h2 class="glassmorphic-card p-3 my-5 text-uppercase">Tarot Reading</h2>
                 <span class="opacity-50 p-3 fst-italic fw-lighter">Focus on your question and draw your cards.</span>
-                <section class="board">
+                <div class="board">
                     <div id="cards-container" class="cards-grid">
                         <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder"
                             style="width: 250px;">
@@ -65,7 +65,7 @@
                                 class="img-fluid rounded mb-3">
                         </div>
                     </div>
-                </section>
+                </div>
                 <div class="actions">
                     <button id="draw-button" class="btn glassmorphic-btn btn-lg my-3">Draw Cards</button>
                 </div>
@@ -83,10 +83,8 @@
                         </div>
                         <div id="aura_element_chart"></div>
                     </div>
-
                     <div id="info-container" class="col-12 col-lg-6 d-none">
                         <div id="element-interpretation" class="text-center text-lg-start fst-italic mb-4"></div>
-
                         <details class="small glassmorphic-card p-2 mb-4">
                             <summary class="text-uppercase p-3">
                                 Interpreting Your Energy <i class="fas fa-chevron-down ms-2 small"></i>
@@ -128,28 +126,33 @@
                                     and embrace the energies that resonate most with you.</p>
                             </div>
                         </details>
-
                         <div id="share-area" class="text-center text-lg-start" style="display:none;">
                             <button id="copy-reading" class="btn glassmorphic-btn btn-sm">
                                 <i class="far fa-copy me-2"></i>Copy My Reading
                             </button>
                         </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="glassmorphic-card d-flex flex-column justify-content-center align-items-center" id="about">
             <h2 class="glassmorphic-card p-3 my-5 text-uppercase">About</h2>
-            <p class="text-center px-3">Aura Tarot is dedicated to providing insightful and personalized tarot readings
-                that help you
-                navigate life's journey. Our mission is to connect you with the ancient wisdom of tarot, offering
-                guidance and clarity through the symbolism of the cards.</p>
-            <p class="text-center px-3">Whether you're seeking answers to specific questions or looking for general
-                guidance, our readings
-                are
-                designed to empower you with knowledge and understanding. We believe that tarot is a powerful tool
-                for self-discovery and personal growth, and we're here to help you unlock its potential.</p>
-            <p class="text-center px-3 mb-5">Thank you for choosing Aura Tarot as your companion on this path of
-                exploration
-                and enlightenment.
-                We look forward to guiding you on your journey.</p>
+            <div class="col-11 col-lg-8 col-xl-6">
+                <p class="text-center px-3">Aura Tarot is dedicated to providing insightful and personalized tarot
+                    readings
+                    that help you
+                    navigate life's journey. Our mission is to connect you with the ancient wisdom of tarot, offering
+                    guidance and clarity through the symbolism of the cards.</p>
+                <p class="text-center px-3">Whether you're seeking answers to specific questions or looking for general
+                    guidance, our readings
+                    are
+                    designed to empower you with knowledge and understanding. We believe that tarot is a powerful tool
+                    for self-discovery and personal growth, and we're here to help you unlock its potential.</p>
+                <p class="text-center px-3 mb-5">Thank you for choosing Aura Tarot as your companion on this path of
+                    exploration
+                    and enlightenment.
+                    We look forward to guiding you on your journey.</p>
+            </div>
         </section>
     </main>
     <footer class="small text-center py-4 mt-5 glassmorphic-card">
@@ -157,22 +160,26 @@
     </footer>
 
     <!-- Modal for Card Details -->
-    <div class="modal fade" id="cardModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="modalCardName"
+        aria-hidden="true" aria-modal="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content glassmorphic-card">
+            <article class="modal-content glassmorphic-card">
                 <div class="modal-header">
-                    <h5 class="modal-title  text-uppercase" id="modalCardName">Card Name</h5>
+                    <h2 class="modal-title h5 text-uppercase" id="modalCardName">Card Name</h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img id="modalCardImg" src="" alt="" class="img-fluid rounded mb-3 card-modal-img">
-                    <p id="modalCardTagline" class="fst-italic  mb-3"></p>
-                    <p id="modalCardDescription" class="text-start p-2"></p>
+                    <div id="modalCardImg" class="card-modal-img mb-3"></div>
+
+                    <p id="modalCardTagline" class="fst-italic mb-3"></p>
+
+                    <div id="modalCardDescription" class="text-center p-2 mb-3"></div>
+
                     <p id="modalCardAura" class="text-uppercase small fw-bold opacity-50" style="letter-spacing: 3px;">
                     </p>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 

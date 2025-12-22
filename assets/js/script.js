@@ -81,16 +81,26 @@ function executeShuffle() {
         container.appendChild(cardDiv);
     });
 
-    //function to show modal with card details
+    // Function to show modal with card details
     function showCardDetails(card) {
+        const modalImgContainer = document.getElementById('modalCardImg');
+        modalImgContainer.innerHTML = '';
+        const imgElement = document.createElement('img');
+        imgElement.src = getCardImagePath(card.name);
+        imgElement.alt = `${card.name} tarot card`;
+        imgElement.className = 'img-fluid shadow';
+
+        modalImgContainer.appendChild(imgElement);
+
         document.getElementById('modalCardName').innerText = card.name;
-        document.getElementById('modalCardImg').src = getCardImagePath(card.name);
         document.getElementById('modalCardTagline').innerText = `"${card.tagline}"`;
         document.getElementById('modalCardDescription').innerText = card.description || "Description coming soon to the stars...";
 
+        const auraField = document.getElementById('modalCardAura');
+        if (auraField) auraField.innerText = card.aura_theme;
+
         const cardModal = new bootstrap.Modal(document.getElementById('cardModal'));
         cardModal.show();
-
     }
     // Draws the chart after cards are displayed
     if (typeof google !== 'undefined' && google.visualization) {
