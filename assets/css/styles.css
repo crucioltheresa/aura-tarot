@@ -184,13 +184,16 @@ summary::-webkit-details-marker {
     filter: drop-shadow(0 0 15px rgba(224, 192, 104, 0.2));
 }
 
-
 #element-interpretation {
     font-size: 1.1rem;
     line-height: 1.6;
     padding: 0 15px;
     max-width: 600px;
     margin: 20px auto;
+}
+
+.transition-all {
+    transition: flex 0.5s ease-in-out, max-width 0.5s ease-in-out;
 }
 
 /* Animation */

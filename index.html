@@ -54,12 +54,12 @@
                             <img src="assets/images/cards/card-back.png" alt="Tarot Deck"
                                 class="img-fluid rounded mb-3">
                         </div>
-                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder d-none d-md-block"
+                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder d-none d-lg-block"
                             style="width: 250px;">
                             <img src="assets/images/cards/card-back.png" alt="Tarot Deck"
                                 class="img-fluid rounded mb-3">
                         </div>
-                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder d-none d-md-block"
+                        <div class="card-item glassmorphic-card p-3 m-2 text-center card-placeholder d-none d-lg-block"
                             style="width: 250px;">
                             <img src="assets/images/cards/card-back.png" alt="Tarot Deck"
                                 class="img-fluid rounded mb-3">
@@ -71,54 +71,69 @@
                 </div>
             </div>
         </section>
-        <section class="d-flex flex-column justify-content-center align-items-center my-5" id="path">
-            <h2 class="glassmorphic-card p-3 mt-5 text-uppercase">Your Path</h2>
-            <!-- Google chart -->
-            <div id="chart-placeholder" class="text-center opacity-50 pt-4 fst-italic fw-lighter">
-                <p>Complete your reading to reveal the elemental balance of your path.</p>
-            </div>
-            <div id="aura_element_chart"></div>
-            <div id="element-interpretation" class="text-center fst-italic"></div>
-
-            <details class="small glassmorphic-card m-4 p-2">
-                <summary class="text-uppercase p-3">
-                    Interpreting Your Energy <i class="fas fa-chevron-down ms-2 small"></i>
-                </summary>
-                <div class=" p-3 pt-0">
-                    <p class="small opacity-75 border-bottom pb-2">The chart above illustrates the distribution of
-                        elemental energies—Fire,
-                        Water, Air, and Earth—in
-                        your
-                        tarot reading. Each element represents different aspects of your personality and life path:</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2 "><strong>Fire:</strong> Symbolizes passion, energy, and creativity. A strong
-                            Fire presence
-                            indicates a dynamic and enthusiastic approach to life.</li>
-                        <li class="mb-2"><strong>Water:</strong> Represents emotions, intuition, and relationships. A
-                            dominant Water
-                            element suggests a deep emotional connection and empathy towards others.</li>
-                        <li class="mb-2"><strong>Air:</strong> Denotes intellect, communication, and ideas. A
-                            significant Air
-                            influence
-                            reflects a thoughtful and analytical mindset.</li>
-                        <li class="mb-2"><strong>Earth:</strong> Stands for stability, practicality, and material
-                            concerns. A robust
-                            Earth
-                            element points to a grounded and reliable nature.</li>
-                    </ul>
-                    <p class="small opacity-75 border-top pt-2">Understanding the balance of these elements can provide
-                        valuable insights into your strengths,
-                        challenges, and overall life direction. Use this knowledge to align your actions with your true
-                        path
-                        and embrace the energies that resonate most with you.</p>
+        <section class="py-5" id="path">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="glassmorphic-card d-inline-block p-3 text-uppercase">Your Path</h2>
                 </div>
-            </details>
+                <div class="row align-items-center justify-content-center">
+                    <div id="chart-container" class="col-12 text-center transition-all">
+                        <div id="chart-placeholder" class="opacity-50 fst-italic fw-lighter">
+                            <p>Complete your reading to reveal the elemental balance of your path.</p>
+                        </div>
+                        <div id="aura_element_chart"></div>
+                    </div>
 
-            <div id="share-area" class="text-center my-3" style="display:none;">
-                <button id="copy-reading" class="btn glassmorphic-btn btn-sm">
-                    <i class="far fa-copy me-2"></i>Copy My Reading
-                </button>
-            </div>
+                    <div id="info-container" class="col-12 col-lg-6 d-none">
+                        <div id="element-interpretation" class="text-center text-lg-start fst-italic mb-4"></div>
+
+                        <details class="small glassmorphic-card p-2 mb-4">
+                            <summary class="text-uppercase p-3">
+                                Interpreting Your Energy <i class="fas fa-chevron-down ms-2 small"></i>
+                            </summary>
+                            <div class=" p-3 pt-0">
+                                <p class="small opacity-75 border-bottom pb-2">The chart above illustrates the
+                                    distribution of
+                                    elemental energies—Fire,
+                                    Water, Air, and Earth—in
+                                    your
+                                    tarot reading. Each element represents different aspects of your personality and
+                                    life path:</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2 "><strong>Fire:</strong> Symbolizes passion, energy, and creativity.
+                                        A strong
+                                        Fire presence
+                                        indicates a dynamic and enthusiastic approach to life.</li>
+                                    <li class="mb-2"><strong>Water:</strong> Represents emotions, intuition, and
+                                        relationships. A
+                                        dominant Water
+                                        element suggests a deep emotional connection and empathy towards others.</li>
+                                    <li class="mb-2"><strong>Air:</strong> Denotes intellect, communication, and ideas.
+                                        A
+                                        significant Air
+                                        influence
+                                        reflects a thoughtful and analytical mindset.</li>
+                                    <li class="mb-2"><strong>Earth:</strong> Stands for stability, practicality, and
+                                        material
+                                        concerns. A robust
+                                        Earth
+                                        element points to a grounded and reliable nature.</li>
+                                </ul>
+                                <p class="small opacity-75 border-top pt-2">Understanding the balance of these elements
+                                    can provide
+                                    valuable insights into your strengths,
+                                    challenges, and overall life direction. Use this knowledge to align your actions
+                                    with your true
+                                    path
+                                    and embrace the energies that resonate most with you.</p>
+                            </div>
+                        </details>
+
+                        <div id="share-area" class="text-center text-lg-start" style="display:none;">
+                            <button id="copy-reading" class="btn glassmorphic-btn btn-sm">
+                                <i class="far fa-copy me-2"></i>Copy My Reading
+                            </button>
+                        </div>
         </section>
         <section class="glassmorphic-card d-flex flex-column justify-content-center align-items-center" id="about">
             <h2 class="glassmorphic-card p-3 my-5 text-uppercase">About</h2>

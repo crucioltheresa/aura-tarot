@@ -104,7 +104,9 @@ function executeShuffle() {
 function drawAuraChart() {
     const placeholder = document.getElementById('chart-placeholder');
     const chartDiv = document.getElementById('aura_element_chart');
-    if (placeholder) placeholder.style.display = 'none';
+    const chartContainer = document.getElementById('chart-container');
+    const infoContainer = document.getElementById('info-container');
+
     if (!chartDiv) return;
 
     const elementCounts = { Fire: 0, Water: 0, Air: 0, Earth: 0 };
@@ -118,33 +120,46 @@ function drawAuraChart() {
     );
 
     if (elementCounts[dominantElement] > 0) {
+        if (placeholder) placeholder.style.display = 'none';
+
+        if (window.innerWidth >= 992) {
+            chartContainer.classList.remove('col-12');
+            chartContainer.classList.add('col-lg-6');
+            infoContainer.classList.remove('d-none');
+        } else {
+            infoContainer.classList.remove('d-none');
+        }
+
         displayInterpretation(dominantElement);
 
-        const data = google.visualization.arrayToDataTable([
-            ['Element', 'Presence'],
-            ['Fire', elementCounts.Fire],
-            ['Water', elementCounts.Water],
-            ['Air', elementCounts.Air],
-            ['Earth', elementCounts.Earth]
-        ]);
+        setTimeout(() => {
+            const data = google.visualization.arrayToDataTable([
+                ['Element', 'Presence'],
+                ['Fire', elementCounts.Fire],
+                ['Water', elementCounts.Water],
+                ['Air', elementCounts.Air],
+                ['Earth', elementCounts.Earth]
+            ]);
 
-        const options = {
-            backgroundColor: 'transparent',
-            colors: ['#ff4d4d', '#3399ff', '#d1d1d1', '#2e8b57'],
-            pieSliceBorderColor: "rgba(255, 255, 255, 0.5)",
-            legend: {
-                position: 'bottom',
-                textStyle: { color: '#ffffff', fontSize: 13 },
-            },
-            chartArea: { width: '90%', height: '80%' }
-        };
+            const options = {
+                backgroundColor: 'transparent',
+                colors: ['#ff4d4d', '#3399ff', '#d1d1d1', '#2e8b57'],
+                pieSliceBorderColor: "rgba(255, 255, 255, 0.5)",
+                legend: {
+                    position: 'bottom',
+                    textStyle: { color: '#ffffff', fontSize: 13 },
+                },
+                chartArea: { width: '100%', height: '80%' },
+                width: '100%',
+                height: 400
+            };
 
-        const chart = new google.visualization.PieChart(chartDiv);
-        chart.draw(data, options);
+            const chart = new google.visualization.PieChart(chartDiv);
+            chart.draw(data, options);
 
-        // Shows share area
-        const shareArea = document.getElementById('share-area');
-        if (shareArea) shareArea.style.display = 'block';
+            const shareArea = document.getElementById('share-area');
+            if (shareArea) shareArea.style.display = 'block';
+        }, 150);
     }
 }
 
