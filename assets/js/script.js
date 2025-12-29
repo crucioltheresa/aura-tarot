@@ -4,7 +4,7 @@ let currentReading = [];
 // Loads Google Charts
 google.charts.load('current', { 'packages': ['corechart'] });
 
-
+// Get card image path
 const getCardImagePath = (cardName) => {
     const fileName = cardName.toLowerCase().trim().split(' ').join('-');
     return `assets/images/cards/${fileName}.png`;
@@ -49,6 +49,7 @@ function performReading() {
     if (drawBtn) drawBtn.innerText = "Try Again";
 }
 
+// Shuffle and Select Cards
 function executeShuffle() {
     const container = document.getElementById('cards-container');
     if (!container) return;
@@ -64,9 +65,8 @@ function executeShuffle() {
 
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card-item glassmorphic-card p-3 m-2 text-center animate-card cursor-pointer';
-        cardDiv.style.width = '250px';
         cardDiv.style.animationDelay = `${index * 0.2}s`;
-        cardDiv.style.cursor = 'pointer'; // indicate clickable cards
+        cardDiv.style.cursor = 'pointer'; // indicates clickable cards
 
         // Add click event to show modal
         cardDiv.onclick = () => showCardDetails(card);
@@ -129,9 +129,9 @@ function drawAuraChart() {
         elementCounts[a] > elementCounts[b] ? a : b
     );
 
+    // Display chart showing the elemental distribution
     if (elementCounts[dominantElement] > 0) {
         if (placeholder) placeholder.style.display = 'none';
-
         if (window.innerWidth >= 992) {
             chartContainer.classList.remove('col-12');
             chartContainer.classList.add('col-lg-6');
@@ -142,6 +142,7 @@ function drawAuraChart() {
 
         displayInterpretation(dominantElement);
 
+        // Draw the chart after a slight delay to ensure container is ready
         setTimeout(() => {
             const data = google.visualization.arrayToDataTable([
                 ['Element', 'Presence'],
@@ -152,13 +153,11 @@ function drawAuraChart() {
             ]);
 
             const options = {
+                is3D: true,
                 backgroundColor: 'transparent',
-                colors: ['#ff4d4d', '#3399ff', '#d1d1d1', '#2e8b57'],
-                pieSliceBorderColor: "rgba(255, 255, 255, 0.5)",
-                legend: {
-                    position: 'bottom',
-                    textStyle: { color: '#ffffff', fontSize: 13 },
-                },
+                colors: ['red', 'blue', 'purple', 'green'],
+                pieSliceText: 'label',
+                legend: 'none',
                 chartArea: { width: '100%', height: '80%' },
                 width: '100%',
                 height: 400
@@ -173,7 +172,7 @@ function drawAuraChart() {
     }
 }
 
-// Interpretation Display
+// Interpretation Frases
 function displayInterpretation(element) {
     const interpretationDiv = document.getElementById('element-interpretation');
     const messages = {
@@ -189,7 +188,7 @@ function displayInterpretation(element) {
 function copyReading() {
     const interpretation = document.getElementById('element-interpretation').innerText;
     const cards = currentReading.join(', ');
-    const textToCopy = `✨ Aura Tarot Reading ✨\nCards: ${cards}\nInterpretation: ${interpretation}`;
+    const textToCopy = `Aura Tarot Reading \nCards: ${cards}\nInterpretation: ${interpretation}`;
 
     navigator.clipboard.writeText(textToCopy).then(() => {
         const copyBtn = document.getElementById('copy-reading');
@@ -206,8 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawBtn = document.getElementById('draw-button');
     const copyBtn = document.getElementById('copy-reading');
 
+    // Draw cards event
     if (drawBtn) drawBtn.addEventListener('click', performReading);
-
     // Copy reading event
     if (copyBtn) copyBtn.addEventListener('click', copyReading);
 });
